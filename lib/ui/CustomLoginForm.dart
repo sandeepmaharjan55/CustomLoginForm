@@ -33,16 +33,16 @@ class _CustomLoginFormState extends State<CustomLoginForm> {
                   borderRadius: BorderRadius.circular(3.3),
                 ),
               ),
-              // validator: (value) {
-              //   if (value.isEmpty) {
-              //     return "Please enter your name";
-              //   } else {
-              //     return "All things are good";
-              //   }
-              // },
-              validator: (value) => value.isEmpty
-                  ? 'Please enter your name'
-                  : 'All things are good',
+              validator: (value) {
+                if (value.isEmpty) {
+                  return "Please enter your name";
+                } else {
+                  print("All things are good");
+                }
+              },
+              // validator: (value) => value.isEmpty
+              //     ? 'Please enter your name'
+              //     : 'All things are good',
             ),
           ),
           Padding(
@@ -56,16 +56,16 @@ class _CustomLoginFormState extends State<CustomLoginForm> {
                   borderRadius: BorderRadius.circular(3.3),
                 ),
               ),
-              // validator: (value) {
-              //   if (value.isEmpty) {
-              //     return "Please enter your Password";
-              //   } else {
-              //     return "All things are good";
-              //   }
-              // },
-              validator: (value) => value.isEmpty
-                  ? 'Please enter your Password'
-                  : 'All things are good',
+              validator: (value) {
+                if (value.isEmpty) {
+                  return "Please enter your Password";
+                } else {
+                  print("All things are good");
+                }
+              },
+              // validator: (value) => value.isEmpty
+              //     ? 'Please enter your Password'
+              //     : 'All things are good',
             ),
           ),
           //add buttons
@@ -79,8 +79,7 @@ class _CustomLoginFormState extends State<CustomLoginForm> {
                       onPressed: () {
                         if (_formKey.currentState.validate()) {
                           Scaffold.of(context).showSnackBar(
-                            SnackBar(content: Text("All things good")),
-                          );
+                              SnackBar(content: Text("All things good")));
                         }
                       },
                       child: Text("Submit")),
