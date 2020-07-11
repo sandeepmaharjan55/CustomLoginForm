@@ -5,8 +5,16 @@ class CustomLoginForm extends StatefulWidget {
   _CustomLoginFormState createState() => _CustomLoginFormState();
 }
 
+//class Data
+class _LoginData {
+  String name = "";
+  String password = "";
+}
+
 class _CustomLoginFormState extends State<CustomLoginForm> {
   final _formKey = GlobalKey<FormState>();
+  _LoginData _data = new _LoginData();
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -33,11 +41,13 @@ class _CustomLoginFormState extends State<CustomLoginForm> {
                   borderRadius: BorderRadius.circular(3.3),
                 ),
               ),
+              // ignore: missing_return
               validator: (value) {
                 if (value.isEmpty) {
                   return "Please enter your name";
                 } else {
-                  print("All things are good");
+                  _data.name = value;
+                  print("Data: ${_data.name}");
                 }
               },
               // validator: (value) => value.isEmpty
@@ -56,11 +66,13 @@ class _CustomLoginFormState extends State<CustomLoginForm> {
                   borderRadius: BorderRadius.circular(3.3),
                 ),
               ),
+              // ignore: missing_return
               validator: (value) {
                 if (value.isEmpty) {
                   return "Please enter your Password";
                 } else {
-                  print("All things are good");
+                  _data.password = value;
+                  print("Data: ${_data.password}");
                 }
               },
               // validator: (value) => value.isEmpty
@@ -93,6 +105,17 @@ class _CustomLoginFormState extends State<CustomLoginForm> {
                     child: Text("Clear")),
               ],
             ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Center(
+                child: Text(
+              "Hello There!!!",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 19.0,
+                  fontWeight: FontWeight.bold),
+            )),
           ),
         ],
       ),
