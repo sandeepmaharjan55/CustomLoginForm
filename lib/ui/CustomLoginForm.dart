@@ -90,6 +90,9 @@ class _CustomLoginFormState extends State<CustomLoginForm> {
                   child: RaisedButton(
                       onPressed: () {
                         if (_formKey.currentState.validate()) {
+                          setState(() {
+                            _data.name = _data.name;
+                          });
                           Scaffold.of(context).showSnackBar(
                               SnackBar(content: Text("All things good")));
                         }
@@ -100,6 +103,9 @@ class _CustomLoginFormState extends State<CustomLoginForm> {
                     onPressed: () {
                       if (_formKey.currentState.validate()) {
                         _formKey.currentState.reset();
+                        setState(() {
+                          _data.name = "";
+                        });
                       }
                     },
                     child: Text("Clear")),
@@ -109,13 +115,15 @@ class _CustomLoginFormState extends State<CustomLoginForm> {
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: Center(
-                child: Text(
-              "Hello There!!!",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 19.0,
-                  fontWeight: FontWeight.bold),
-            )),
+                child: _data.name.isEmpty
+                    ? Text("")
+                    : Text(
+                        "Welcome ${_data.name}",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 19.0,
+                            fontWeight: FontWeight.bold),
+                      )),
           ),
         ],
       ),
