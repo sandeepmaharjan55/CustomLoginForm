@@ -16,4 +16,4 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 output image
-![Image of Login](images/flu.jpg)
+![Image of Login](https://github.com/sandeepmaharjan55/CustomLoginForm/blob/master/images/flu.JPG)
